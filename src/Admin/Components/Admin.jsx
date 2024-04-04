@@ -15,12 +15,12 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import { customTheme } from "./Theme";
-import AdminNavbar from "./Navigation/AdminNavbar";
-import Dashboard from "./Views/Admin";
+// import AdminNavbar from "./Navigation/AdminNavbar";
+// import Dashboard from "./Views/Admin";
 import { Route, Routes, useNavigate } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
-import { getUser, logout } from "../Redux/Auth/Action";
+import { getUser, logout } from "../../user/redux/Auth/Action";
 import { useEffect } from "react";
 import { deepPurple } from "@mui/material/colors";
 import Dashboard from "./Dashboard";
@@ -125,9 +125,9 @@ export default function AdminPannel() {
     </Box>
   );
 
-  const handleSideBarViewInMobile = () => {
-    setSideBarVisible(true);
-  };
+  // const handleSideBarViewInMobile = () => {
+  //   setSideBarVisible(true);
+  // };
 
   const handleCloseSideBar = () => {
     setSideBarVisible(false);
@@ -140,7 +140,7 @@ export default function AdminPannel() {
     <ThemeProvider  theme={customTheme}>
       <Box sx={{ display: `${isLargeScreen ? "flex" : "block"}` }}>
         <CssBaseline />
-       <AdminNavbar handleSideBarViewInMobile={handleSideBarViewInMobile} /> 
+       {/* <AdminNavbar handleSideBarViewInMobile={handleSideBarViewInMobile} />  */}
 
         <Drawer
           variant={drawerVariant}

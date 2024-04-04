@@ -236,7 +236,7 @@ export default function ProductDetails() {
                 </div>
               </form>
 
-<a href='/cart'>
+<Link to='/cart'>
 <button
               
                 onClick={handleAddToCart}
@@ -246,7 +246,7 @@ export default function ProductDetails() {
               >
                 Add to Cart
               </button>
-</a>
+</Link>
               
 
 

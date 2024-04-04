@@ -57,7 +57,7 @@ const LoginForm = ({ setIsLoggedIn }) => {
       <form onSubmit={submitHandler}>
         <div className=' flex flex-col gap-5'>
           <label>
-            <p className=' font-poppins text-3xl'>
+            <p className=' font-poppins text-xl'>
               Email Address<sup>*</sup>
             </p>
             <input
@@ -71,7 +71,7 @@ const LoginForm = ({ setIsLoggedIn }) => {
             />
           </label>
           <label>
-            <p className=' font-poppins text-3xl'>
+            <p className=' font-poppins text-xl'>
               Password<sup>*</sup>
             </p>
             <div className='relative'>
@@ -94,7 +94,7 @@ const LoginForm = ({ setIsLoggedIn }) => {
               </p>
             </Link>
           </label>
-          <button className=' mt-10 rounded-2xl text-whitecolor bg-secondary-dark-color hover:bg-primarycolor transition-all transition-500ms font-poppins text-3xl px-7 py-3 w-full '>
+          <button className=' mt-10 rounded-2xl text-whitecolor bg-secondary-dark-color hover:bg-primarycolor transition-all transition-500ms font-poppins text-xl px-7 py-3 w-full '>
             Log In
           </button>
         </div>

@@ -68,7 +68,7 @@ const SignUpForm = ({ setIsLoggedIn }) => {
         {/* first name and lastName */}
         <div className=' my-3 flex flex-col gap-5'>
           <label>
-            <p className=' font-poppins text-3xl'>First Name<sup>*</sup></p>
+            <p className=' font-poppins text-xl'>First Name<sup>*</sup></p>
             <input
               required
               type="text"
@@ -81,7 +81,7 @@ const SignUpForm = ({ setIsLoggedIn }) => {
           </label>
 
           <label>
-            <p className=' font-poppins text-3xl'>Last Name<sup>*</sup></p>
+            <p className=' font-poppins text-xl'>Last Name<sup>*</sup></p>
             <input
               required
               type="text"
@@ -95,7 +95,7 @@ const SignUpForm = ({ setIsLoggedIn }) => {
         </div>
         {/* email Add */}
         <label>
-          <p className=' font-poppins text-3xl '>Email Address<sup>*</sup></p>
+          <p className=' font-poppins text-xl '>Email Address<sup>*</sup></p>
           <input
             required
             type="email"
@@ -111,7 +111,7 @@ const SignUpForm = ({ setIsLoggedIn }) => {
         <div className='flex flex-col gap-5 mt-5'>
           <div className='relative'>
             <label>
-              <p className='font-poppins text-3xl'>Create Password<sup>*</sup></p>
+              <p className='font-poppins text-xl'>Create Password<sup>*</sup></p>
               <input
                 required
                 type={showPassword1 ? ('text') : ('password')}
@@ -129,7 +129,7 @@ const SignUpForm = ({ setIsLoggedIn }) => {
 
           <div className='relative'>
             <label>
-              <p className='font-poppins text-3xl'>Confirm Password<sup>*</sup></p>
+              <p className='font-poppins text-xl'>Confirm Password<sup>*</sup></p>
               <input
                 required
                 type={showPassword2 ? ('text') : ('password')}
@@ -145,7 +145,7 @@ const SignUpForm = ({ setIsLoggedIn }) => {
             </label>
           </div>
         </div>
-        <button className=' mt-10 rounded-2xl text-whitecolor bg-secondary-dark-color hover:bg-primarycolor transition-all transition-500ms font-poppins text-3xl px-7 py-3 w-full '>
+        <button className=' mt-10 rounded-2xl text-whitecolor bg-secondary-dark-color hover:bg-primarycolor transition-all transition-500ms font-poppins text-xl px-7 py-3 w-full '>
           Create Account
         </button>
       </form>

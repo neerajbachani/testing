@@ -79,7 +79,7 @@ const HeroSection = ({ isOpen }) => {
                 </Link>
               </div>
               <button
-                className=" text-xl  md:text-4xl text-secondary-dark-color px-10 py-1 rounded "
+                className=" text-2xl  md:text-4xl text-secondary-dark-color px-10 py-1 rounded "
                 onClick={nextImage}
               >
                 <IoIosArrowDroprightCircle />
@@ -89,7 +89,7 @@ const HeroSection = ({ isOpen }) => {
 
           <div className={`${widthClas} absolute  top-0 bottom-0 left-0 right-0 bg-opacity-80 opacity-40`} style={{
             background: "rgb(224,235,255)",
-            // background: "linear-gradient(90deg, rgba(224,235,255,1) 0%, rgba(107,154,240,1) 100%)",
+            background: "linear-gradient(90deg, rgba(224,235,255,1) 0%, rgba(107,154,240,1) 100%)",
           }}></div>
         </div>
       </div>

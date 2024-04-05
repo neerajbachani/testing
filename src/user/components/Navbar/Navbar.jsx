@@ -120,9 +120,9 @@ export function NavbarDefault() {
         <Link to='/'>
         <Typography
           
-          className=" cursor-pointer  font-medium"
+          className=" cursor-pointer  font-medium -ml-7 md:-ml-0"
         >
-          <img src="https://res.cloudinary.com/dkhsnhjrh/image/upload/v1708707479/2_igcdbk.png" className="sm:w-36 sm:h-36 w-28 h-28 "/>
+          <img src="https://res.cloudinary.com/dkhsnhjrh/image/upload/v1708707479/2_igcdbk.png" className="sm:w-36 sm:h-36 w-28 h-28  "/>
         </Typography>
         </Link>
         

@@ -3,6 +3,7 @@ import { ADD_ITEM_TO_CART_FAILURE, ADD_ITEM_TO_CART_REQUEST, ADD_ITEM_TO_CART_SU
 
 export const getCart = (reqData) => async (dispatch) => {
     dispatch({ type: GET_CART_REQUEST });
+    console.log(reqData)
 
     try {
         const { data } = await api.get("/api/cart/", reqData);
@@ -14,6 +15,7 @@ export const getCart = (reqData) => async (dispatch) => {
 }
 export const addItemToCart = (reqData) => async (dispatch) => {
     dispatch({ type: ADD_ITEM_TO_CART_REQUEST });
+    console.log(reqData)
 
     try {
         const { data } = await api.put("/api/cart/add", reqData.data);

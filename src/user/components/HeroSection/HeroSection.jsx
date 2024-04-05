@@ -31,6 +31,7 @@ const HeroSection = ({ isOpen }) => {
 
   const nextImage = () => {
     setCurrentImage((currentImage + 1) % heroSection.heroSections.length);
+    console.log("hu")
   };
 
   const prevImage = () => {
@@ -44,7 +45,7 @@ const HeroSection = ({ isOpen }) => {
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
       />
-      <div className={`${widthClass} relative mt-[1rem]`}>
+      <div className={`${widthClass} relative md:mt-[1rem] mt-[0rem] `}>
         <div>
           {heroSection.heroSections.length > 0 && heroSection.heroSections[currentImage] ? (
             <>
@@ -67,7 +68,7 @@ const HeroSection = ({ isOpen }) => {
                 <IoIosArrowDropleftCircle />
               </button>
               <div className=' flex flex-col '>
-                <h1 className=' lg:text-4xl sm:text-2xl text-xl font-poppins font-semibold text-secondary-dark-color '>
+                <h1 className=' lg:text-4xl  text-2xl font-poppins font-semibold text-secondary-dark-color '>
                   {heroSection.heroSections.length > 0 && heroSection.heroSections[currentImage].title}
                 </h1>
                 <Link to={heroSection.heroSections.length > 0 && heroSection.heroSections[currentImage].link} className=" mt-10  relative inline-flex items-center justify-center  md:py-7 py-2  overflow-hidden font-medium font-poppins text-indigo-600 transition duration-300 ease-out rounded-full shadow-sm bg-primarycolor  group md:w-[15rem] w-[8rem]">
@@ -79,7 +80,7 @@ const HeroSection = ({ isOpen }) => {
                 </Link>
               </div>
               <button
-                className=" text-2xl  md:text-4xl text-secondary-dark-color px-10 py-1 rounded "
+                className=" text-xl md:text-4xl text-secondary-dark-color px-10 py-1 rounded "
                 onClick={nextImage}
               >
                 <IoIosArrowDroprightCircle />

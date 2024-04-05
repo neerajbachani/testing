@@ -31,7 +31,7 @@ const DeptAndSearch = () => {
 
   return (
     <section className="bg-[#3b78ab] flex justify-between md:px-5 px-0 items-center">
-      <div className="bg-[#55bae9] relative sm:p-5 p-2 flex justify-between rounded-tr-md rounded-tl-md gap-3 md:gap-[5rem] sm:gap-[3rem] items-center mt-4">
+      <div className="bg-[#55bae9] relative sm:p-5 p-2 flex justify-between rounded-tr-md rounded-tl-md gap-7 md:gap-[5rem] sm:gap-[3rem] items-center mt-4">
         <div className="flex flex-col -space-y-1">
           <h2 className="md:text-xl text-lg text-[#fff] font-poppins font-bold">
             All Departments

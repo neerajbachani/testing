@@ -30,6 +30,8 @@ export default function ProductDetails() {
   const [open, setOpen] = React.useState(false);
 
   const { product } = useSelector((store) => store);
+  const { cart } = useSelector((store) => store);
+  console.log(cart)
   const { productId } = useParams();
   const jwt = localStorage.getItem('jwt');
   const dispatch = useDispatch();
@@ -62,6 +64,7 @@ export default function ProductDetails() {
   const handleAddToCart = () => {
     const data = { productId: productId };
     console.log(data);
+    console.log("hi")
     dispatch(addItemToCart({ data, jwt }));
     // navigate('/cart');
   };
@@ -236,7 +239,7 @@ export default function ProductDetails() {
                 </div>
               </form>
 
-<Link to='/cart'>
+
 <button
               
                 onClick={handleAddToCart}
@@ -246,7 +249,7 @@ export default function ProductDetails() {
               >
                 Add to Cart
               </button>
-</Link>
+
               
 
 

@@ -9,7 +9,7 @@ const SignUpForm = ({ setIsLoggedIn }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const jwt = localStorage.getItem("jwt");
-  const { auth } = useSelector(store => store);
+  const { auth } = useSelector((store) => store);
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {

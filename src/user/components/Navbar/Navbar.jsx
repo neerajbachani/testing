@@ -13,6 +13,8 @@ import { useSelector } from 'react-redux';
 import { getUser, logout } from '../../redux/Auth/Action';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { getCart } from "../../redux/Cart/Action";
+import { PiShoppingCartSimpleLight } from "react-icons/pi";
 
 export function NavbarDefault() {
   const [openNav, setOpenNav] = useState(false);
@@ -28,15 +30,21 @@ export function NavbarDefault() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const jwt = localStorage.getItem("jwt");
-  const { auth } = useSelector(store => store);
+  const { auth } = useSelector((store) => store);
+  const { cart } = useSelector((store) => store);
+  console.log(cart)
+
+  
 
   const isActive = (pathname) => {
     return location.pathname === pathname;
   };
 
+
   useEffect(() => {
     if (jwt) {
       dispatch(getUser(jwt));
+      dispatch(getCart(jwt));
     }
   }, [jwt, auth.jwt]);
 
@@ -67,6 +75,7 @@ export function NavbarDefault() {
     setAnchorEl(null);
   };
 
+  console.log(cart.cartItems.length)
   const navList = (
     <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       <Typography
@@ -127,7 +136,7 @@ export function NavbarDefault() {
         </Link>
         
         <div className="hidden  lg:block">{navList}</div>
-        <div className="flex items-center gap-x-3">
+        <div className="flex items-center gap-x-5">
           {/* <Button variant="text" size="sm" className="hidden lg:inline-block">
             <span>Log In</span>
           </Button>
@@ -197,14 +206,18 @@ export function NavbarDefault() {
           
         )}
         {auth.user && (
+          <Link to="/cart">
+         
           <Button
-          onClick={handleLogout}
           variant="gradient"
           size="sm"
-          className="hidden lg:inline-block"
+          className="hidden relative  lg:inline-block"
         >
-          <span>Log Out</span>
+          <span> <PiShoppingCartSimpleLight className=" text-2xl  text-secondary-dark-color" />
+            <p className=" absolute -right-3 -top-3 bg-primarycolor p-2 text-[#fff] rounded-full"> {cart.cartItems.length}</p>
+          </span>
         </Button>
+        </Link>
         )}
         </div>
         <IconButton
@@ -248,7 +261,7 @@ export function NavbarDefault() {
       <Collapse open={openNav}>
         <div className="container mx-auto">
           {navList}
-          <div className="flex items-center gap-x-1">
+          <div className="flex items-center gap-x-4 md:gap-x-1">
             {/* <Button fullWidth variant="text" size="sm" className="">
               <span>Log In</span>
             </Button>
@@ -303,9 +316,14 @@ export function NavbarDefault() {
           
         )}
         {auth.user && (
-          <button onClick={handleLogout} className='bg-richblack-800 text-richblack-100 py-[8px] px-[12px] rounded-[8px] border border-richblack-700'>
-            Log Out
+          <Link to='/cart'>
+          
+          <button className='bg-richblack-800 relative py-[8px] px-[12px] rounded-[8px] border border-richblack-700'>
+            <PiShoppingCartSimpleLight className=" text-2xl text-secondary-dark-color" />
+            <div className=" z-20 absolute -right-3 -top-3 bg-primarycolor p-2 text-[#fff] rounded-full"> {cart.cartItems.length}</div>
           </button>
+          
+          </Link>
         )}
           </div>
         </div>

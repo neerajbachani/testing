@@ -3,7 +3,7 @@ import React from 'react'
 import DeptAndSearch from '../DepartmentAndSearch/DeptAndSearch'
 import WhatsAppButton from './Whatsapp'
 import { Link, useNavigate } from 'react-router-dom'
-import { addItemToCart } from "../../redux/Cart/Action"
+import { addItemToCart, getCart } from "../../redux/Cart/Action"
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
@@ -13,8 +13,8 @@ import rectangle36 from '../../../assets/rectangle-36@2x.png'
 import rectangle34 from '../../../assets/rectangle-34@2x.png'
 
 // import ProductReviewCard from '../ProductReviewCard/ProductReviewCard'
-// import Lightbox from "yet-another-react-lightbox";
-// import "yet-another-react-lightbox/styles.css";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
 
 
@@ -52,6 +52,7 @@ export default function ProductDetails() {
           loadingBarRef.current.complete()
         }, 500);
       });
+      dispatch(getCart(jwt))
   }, [productId, dispatch, jwt]);
 
   console.log(product.product?.name);
@@ -64,9 +65,8 @@ export default function ProductDetails() {
   const handleAddToCart = () => {
     const data = { productId: productId };
     console.log(data);
-    console.log("hi")
     dispatch(addItemToCart({ data, jwt }));
-    // navigate('/cart');
+    navigate('/cart');
   };
 
   const handleBuyNoW = () => {
@@ -110,7 +110,7 @@ export default function ProductDetails() {
       
     
   return (
-
+   
     <div className="bg-white">
        
       <DeptAndSearch />
@@ -134,7 +134,7 @@ export default function ProductDetails() {
                 className="h-[30rem] w-[25rem] object-cover "
               />
       </button>
-      {/* <Lightbox
+      <Lightbox
         open={open}
         close={() => setOpen(false)}
         slides={[
@@ -153,7 +153,7 @@ export default function ProductDetails() {
           },
           // ...
         ]}
-      /> */}
+      />
               
             </div>
           </div>
@@ -239,18 +239,13 @@ export default function ProductDetails() {
                 </div>
               </form>
 
-
-<button
-              
+              <button
                 onClick={handleAddToCart}
-
                 type="submit"
                 className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent  px-8 py-3  font-medium  bg-primarycolor hover:bg-light-text-color  transition duration-500 text-2xl font-poppins "
               >
                 Add to Cart
               </button>
-
-              
 
 
               <button

@@ -39,7 +39,7 @@ useEffect(() => {
       progress={progress}
       onLoaderFinished={() => setProgress(0)}
     />
-      {cart.cartItems.length>0 && <div className="lg:grid grid-cols-3 lg:px-16 relative">
+      {cart.cartItems?.length>0 && <div className="lg:grid grid-cols-3 lg:px-16 relative">
         <div className="lg:col-span-2 lg:px-5 bg-white">
         <div className=" space-y-3">
           {cart.cartItems.map((item) => (
@@ -57,7 +57,7 @@ useEffect(() => {
           <div className="space-y-3 font-semibold">
             <div className="flex justify-between pt-3 text-black font-poppins text-lg ">
               <span>Price ({cart.cart?.totalItem} item)</span>
-              <span>₹{cart.cart.totalPrice}</span>
+              <span>₹{cart.cart?.totalPrice}</span>
             </div>
             <div className="flex justify-between font-poppins text-lg">
               <span>Discount</span>

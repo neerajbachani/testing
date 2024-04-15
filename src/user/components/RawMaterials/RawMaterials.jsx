@@ -82,9 +82,16 @@ const RawMaterials = () => {
                 
             </div>
         </div>
-        <button className='btn ' onClick={handleButton} >
-            View All →
-        </button>
+        <div className=' flex '>
+            <Link to='/products?resinRawMaterials=rawcollections' className=" mt-10  relative inline-flex items-center justify-center  py-2  overflow-hidden font-medium font-poppins text-indigo-600 transition duration-300 ease-out rounded-full shadow-sm bg-primarycolor  group mx-auto max-w-7xl w-[10rem]">
+                  <span className="absolute inset-0 flex items-center justify-center w-full h-full text-[#fff] duration-300 -translate-x-full bg-primarycolor group-hover:translate-x-0 ease">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                  </span>
+                  <span className="absolute flex items-center justify-center w-full h-full text-purple-500 transition-all duration-300 transform group-hover:translate-x-full ease md:text-2xl text-lg  text-[white]">View All</span>
+                  <span className="relative invisible">View All</span>
+                </Link>
+            </div>
+       
     </div>
     </>
   )

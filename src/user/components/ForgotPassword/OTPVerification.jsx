@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { api } from '../../../Config/ApiConfig';
+import { API_BASE_URL, api } from '../../../Config/ApiConfig';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Box, Button, TextField, Typography } from '@mui/material';
 
@@ -13,7 +13,7 @@ const OTPVerification = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await api.get(`/api/users/verifyOTP?email=${emailId}&code=${otp}`);
+      const response = await axios.get(`${API_BASE_URL}/api/users/verifyOTP?email=${emailId}&code=${otp}`);
       navigate(`/resetPassword/email/${emailId}`);
       console.log("otp verified")
     } catch (error) {

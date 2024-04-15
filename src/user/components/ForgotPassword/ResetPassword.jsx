@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { api } from "../../../Config/ApiConfig"
+import { API_BASE_URL, api } from "../../../Config/ApiConfig"
 import { useNavigate, useParams } from 'react-router-dom';
 
 const ResetPassword = () => {
@@ -14,7 +14,7 @@ const ResetPassword = () => {
     e.preventDefault();
    
     try {
-      const response = await api.put(`/api/users/resetPassword?email=${emailId}`, {email: emailId, password: confirmPassword });
+      const response = await axios.put(`${API_BASE_URL}/api/users/resetPassword?email=${emailId}`, {email: emailId, password: confirmPassword });
       // Handle the response (e.g., show a success message, navigate to the login page)
       navigate('/signin')
       

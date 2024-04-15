@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { api } from '../../../Config/ApiConfig';
+import { API_BASE_URL, api } from '../../../Config/ApiConfig';
 import { useNavigate } from 'react-router-dom';
 import { Box, Button, TextField, Typography } from '@mui/material';
 
@@ -12,10 +12,10 @@ const ForgotPassword = () => {
     e.preventDefault();
     try {
       // Generate OTP
-      const otpResponse = await api.get(`/api/users/generateOTP?email=${email}`);
+      const otpResponse = await axios.get(`${API_BASE_URL}/api/users/generateOTP?email=${email}`);
 
       // Send email with OTP
-      const mailResponse = await api.post('/api/registerMail', {
+      const mailResponse = await axios.post(`${API_BASE_URL}/api/registerMail`, {
         username: email,
         userEmail: email,
         text: `Your OTP is ${otpResponse.data.code}. Please verify your OTP to reset your password.`,

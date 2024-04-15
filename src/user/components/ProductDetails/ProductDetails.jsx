@@ -143,13 +143,6 @@ export default function ProductDetails() {
             alt: "image 1",
             width: 3840,
             height: 2560,
-            srcSet: [
-              { src: `${product.product?.image}`, width: 320, height: 213 },
-              { src: `${product.product?.image}`, width: 640, height: 427 },
-              { src: `${product.product?.image}`, width: 1200, height: 800 },
-              { src: `${product.product?.image}`, width: 2048, height: 1365 },
-              { src: `${product.product?.image}`, width: 3840, height: 2560 },
-            ],
           },
           // ...
         ]}

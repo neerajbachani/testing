@@ -94,7 +94,7 @@ const handleAddToCart = (productId) => {
 </Link>
       </div>
       {/* <div className='mx-5 h-[0.3rem] bg-light-bg-color'></div> */}
-      <div className='  flex flex-wrap justify-between 2xl:gap-20 sm:gap-10 gap-5  items-center px-[4rem] pb-4 pt-[3rem] bg-blue-primary bg-opacity-20'>
+      <div className='  flex flex-wrap justify-center 2xl:gap-20 sm:gap-10 gap-5  items-center px-10 pb-4 pt-[3rem] bg-blue-primary bg-opacity-20'>
         
       {products.length > 0 ? (
         products.map((product, index) => (

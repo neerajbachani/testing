@@ -243,7 +243,7 @@ const [isShippingAddressLoading, setIsShippingAddressLoading] = useState(true);
               
               {filteredOrders.map((item, index) => {
     const orderDetails = order.orders[item._id];
-    console.log(orderDetails);
+    // console.log(orderDetails);
     const userDetails = orderDetails?.user;
     const shippingAddress = orderDetails?.shippingAddress;
                   return (

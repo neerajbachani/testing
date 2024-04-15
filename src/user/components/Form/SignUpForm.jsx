@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { getUser, register } from '../../redux/Auth/Action';
 import LoadingBar from 'react-top-loading-bar';
 
 const SignUpForm = ({ setIsLoggedIn }) => {
   const navigate = useNavigate();
+  const location = useLocation();
   const dispatch = useDispatch();
   const jwt = localStorage.getItem("jwt");
   const { auth } = useSelector((store) => store);
@@ -23,16 +24,16 @@ const SignUpForm = ({ setIsLoggedIn }) => {
     lastName: "",
     email: "",
     password: "",
-    confirmPassword: ""
+    confirmPassword: "",
   });
 
   const [showPassword1, setShowPassword1] = useState(false);
   const [showPassword2, setShowPassword2] = useState(false);
 
   function changeHandler(event) {
-    setUserData(prevData => ({
+    setUserData((prevData) => ({
       ...prevData,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     }));
   }
 
@@ -40,21 +41,26 @@ const SignUpForm = ({ setIsLoggedIn }) => {
     try {
       event.preventDefault();
       if (userData.password !== userData.confirmPassword) {
-     
         return;
       }
 
       // Show loading bar
       setProgress(100);
+      dispatch(
+        register(userData, () => {
+          setProgress(0); // Reset progress after register action is completed
+          setIsLoggedIn(true);
+          const accountData = { ...userData };
+          console.log("printing account data ");
+          console.log(accountData);
 
-      dispatch(register(userData, () => {
-        setProgress(0); // Reset progress after register action is completed
-        setIsLoggedIn(true);
-        const accountData = { ...userData };
-        console.log("printing account data ");
-        console.log(accountData);
-        navigate(-1);
-      }));
+          // Navigate to the previous page (-1)
+          navigate(-1, { replace: true });
+
+          // Reload the website
+          window.location.reload();
+        })
+      );
     } catch (error) {
       console.error('Submit handler error:', error);
       setProgress(0); // Reset progress if an error occurs

@@ -51,6 +51,7 @@ export function NavbarDefault() {
   useEffect(() => {
     if (location.pathname === '/signup' || location.pathname === '/signinn') {
       navigate(-1);
+      window.location.reload()
     }
   }, [auth.user]);
 

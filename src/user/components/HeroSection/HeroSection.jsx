@@ -105,34 +105,41 @@ const HeroSection = ({ isOpen }) => {
   const { heroSection } = useSelector((store) => store);
   const [progress, setProgress] = useState(0);
   const [currentImage, setCurrentImage] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setProgress(50);
     dispatch(getHeroSection())
       .then(() => {
         setProgress(100);
+        setLoading(false);
         setTimeout(() => {
           setProgress(0);
         }, 500);
       })
       .catch(() => {
         setProgress(0);
+        setLoading(false);
       });
   }, [dispatch]);
 
-  const widthClass = isOpen ? 'sm:max-w-[70vw] 2xl:max-w-[75vw] w-full  mx-auto sm:ml-[15rem] md:ml-[22rem] transition-all duration-500 ' : ' w-full md:mx-0 md:px-4 transition-all duration-500 ml-[0rem] mt-[2rem] ';
+  const widthClass = isOpen
+    ? 'sm:max-w-[70vw] 2xl:max-w-[75vw] w-full mx-auto sm:ml-[15rem] md:ml-[22rem] transition-all duration-500'
+    : 'w-full md:mx-0 md:px-4 transition-all duration-500 ml-[0rem] mt-[2rem]';
   const widthClas = isOpen ? 'mx-0' : 'md:mx-4';
 
   const items = [
     <div key={currentImage} className="item">
-      {heroSection.heroSections.length > 0 && (
+      {loading ? (
+        <Skeleton variant="rectangular" sx={{ minHeight: '80vh', width: '100%' }} />
+      ) : (
         <>
-         <Link to={heroSection.heroSections[currentImage].link} >
-          <img
-          className='  bg-no-repeat '
-            src={heroSection.heroSections[currentImage].image}
-            alt={heroSection.heroSections[currentImage].title}
-          />
+          <Link to={heroSection.heroSections[currentImage].link}>
+            <img
+              className="bg-no-repeat"
+              src={heroSection.heroSections[currentImage].image}
+              alt={heroSection.heroSections[currentImage].title}
+            />
           </Link>
         </>
       )}
@@ -168,10 +175,10 @@ const HeroSection = ({ isOpen }) => {
           controlsStrategy="alternate"
           infinite
           autoPlay
-          autoPlayInterval={5000}
+          autoPlayInterval={2000}
           disableButtonsControls
           disableDotsControls
-          onSlideChanged={(e) => setCurrentImage(e.item)}
+          onSlideChanged= {nextImage}
         />
       </div>
     </>

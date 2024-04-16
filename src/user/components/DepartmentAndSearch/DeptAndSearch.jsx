@@ -47,7 +47,7 @@ const DeptAndSearch = () => {
           </button>
 
           {isOpen && (
-            <div className="origin-top-right absolute right-0 left-0 top-[100%] bg-[#edf2fb] rounded-bl-md rounded-br-md shadow-lg bg-white ring-opacity-5 transition-all duration-500">
+            <div className="origin-top-right absolute right-0 left-0 top-[100%] bg-[#edf2fb] rounded-bl-md rounded-br-md shadow-lg bg-white ring-opacity-5 transition-all duration-500 z-20">
               <div className=" border-[0.1rem] divide-y divide-border-color border-border-color">
                 {menuItems.map((item, index) => (
                   <div

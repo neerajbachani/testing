@@ -1,6 +1,6 @@
 import axios from "axios"
 
-export const API_BASE_URL = "https://resingiftstoreapi.onrender.com"
+export const API_BASE_URL = "https://resinfinalapi.onrender.com"
 
 const jwt = localStorage.getItem("jwt")
 

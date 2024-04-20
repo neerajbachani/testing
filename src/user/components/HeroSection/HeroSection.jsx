@@ -167,7 +167,7 @@ const HeroSection = ({ isOpen }) => {
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
       />
-      <div className={`${widthClass} relative md:mt-[1rem] mt-[0rem] `}>
+      <div className={`${widthClass}  md:mt-[1rem] mt-[0rem] `}>
         <AliceCarousel
           mouseTracking
           items={items}

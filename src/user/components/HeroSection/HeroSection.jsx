@@ -134,11 +134,11 @@ const HeroSection = ({ isOpen }) => {
         <Skeleton variant="rectangular" sx={{ minHeight: '80vh', width: '100%' }} />
       ) : (
         <>
-          <Link to={heroSection.heroSections[currentImage].link}>
+          <Link to={heroSection.heroSections[currentImage]?.link}>
             <img
               className="bg-no-repeat"
-              src={heroSection.heroSections[currentImage].image}
-              alt={heroSection.heroSections[currentImage].title}
+              src={heroSection.heroSections[currentImage]?.image}
+              alt={heroSection.heroSections[currentImage]?.title}
             />
           </Link>
         </>
